@@ -57,6 +57,7 @@ type Finding struct {
   FileUrl         string
   CommitUrl       string
   RepositoryUrl   string
+  CommitDate      string
 }
 
 func (f *Finding) setupUrls() {
