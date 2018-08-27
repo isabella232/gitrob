@@ -162,6 +162,7 @@ func AnalyzeRepositories(sess *core.Session) {
                   CommitHash:      commit.Hash.String(),
                   CommitMessage:   strings.TrimSpace(commit.Message),
                   CommitAuthor:    commit.Author.String(),
+                  CommitDate:      commit.Author.When.Format("Mon Jan 02 15:04:05 2006 -0700"),
                 }
                 finding.Initialize()
                 sess.AddFinding(finding)
@@ -171,6 +172,7 @@ func AnalyzeRepositories(sess *core.Session) {
                 sess.Out.Info("  Repo.......: %s\n", *repo.FullName)
                 sess.Out.Info("  Message....: %s\n", core.TruncateString(finding.CommitMessage, 100))
                 sess.Out.Info("  Author.....: %s\n", finding.CommitAuthor)
+                sess.Out.Info("  Date.......: %s\n", finding.CommitDate)
                 if finding.Comment != "" {
                   sess.Out.Info("  Comment....: %s\n", finding.Comment)
                 }
