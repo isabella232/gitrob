@@ -16,6 +16,7 @@ type Options struct {
   Silent            *bool
   Debug             *bool
   NoServer          *bool
+  IncludeForks      *bool
   Logins            []string
 }
 
@@ -32,6 +33,7 @@ func ParseOptions() (Options, error) {
     Silent:            flag.Bool("silent", false, "Suppress all output except for errors"),
     Debug:             flag.Bool("debug", false, "Print debugging information"),
     NoServer:          flag.Bool("no-server", false, "Disables web server"),
+    IncludeForks:      flag.Bool("include-forks", false, "Include forked repositories in scan"),
   }
 
   flag.Parse()
